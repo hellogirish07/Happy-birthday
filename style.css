@@ -32,7 +32,7 @@ img {
 h1 {
     font-size: 28px;
     color: #333;
-    margin-top: 20px;
+/*     margin-top: 20px; */
     animation: slideInLeft 2s ease ;
 }
 
@@ -55,6 +55,7 @@ p {
 }
 
 .wish {
+    margin-top: 15px;
     border-left: 5px solid #16a085;
     background-color: #ecf5f3;
 }
