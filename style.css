@@ -43,17 +43,6 @@ p {
     animation: slideInRight 2s ease ;
 }
 
-.spacial-msg {
-    padding: 5px;
-    background-color: #f7f0e6;
-    border-left: 5px solid #f39c12;
-}
-
-.spacial-msg span {
-    color: red;
-    text-transform: uppercase;
-}
-
 .wish {
     margin-top: 12px;
     border-left: 5px solid #16a085;
