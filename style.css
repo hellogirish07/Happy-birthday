@@ -1,52 +1,58 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f1f1f1;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    height: 100vh;
+    background: radial-gradient(circle, rgba(255, 182, 193, 1) 0%, rgba(255, 105, 180, 1) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
+    background-repeat: no-repeat;
 }
 
 .birthday-card {
     text-align: center;
+    width: 95%;
     max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 50px;
+    padding: 25px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    animation: bounceIn 1.5s ease;
+    border: 2px solid #ff69b4;
 }
 
 img {
     width: 100%;
-    max-height: 200px;
+    max-height: 220px;
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: 10px;
     animation: fadeIn 2s ease;
+    border: 3px solid #ffb6c1;
 }
 
 h1 {
-    font-size: 28px;
-    color: #333;
-/*     margin-top: 20px; */
-    animation: slideInLeft 2s ease ;
+    font-size: 32px;
+    color: #ff1493;
+    text-shadow: 2px 2px 5px rgba(255, 105, 180, 0.5);
+    animation: bounceText 1.5s ease infinite alternate;
 }
 
 p {
-    font-size: 16px;
-    color: #666;
+    font-size: 18px;
+    color: #6a5acd;
     margin-top: 10px;
-    animation: slideInRight 2s ease ;
+    line-height: 1.5;
 }
 
 .wish {
-    margin-top: 12px;
-    border-left: 5px solid #16a085;
-    background-color: #ecf5f3;
+    margin-top: 15px;
+    animation: fadeInUp 2s ease;
 }
 
 @keyframes fadeIn {
@@ -54,33 +60,43 @@ p {
         opacity: 0;
         transform: scale(0.9);
     }
-
     100% {
         opacity: 1;
         transform: scale(1);
     }
 }
 
-@keyframes slideInLeft {
+@keyframes fadeInUp {
     0% {
         opacity: 0;
-        transform: translateX(-100px);
+        transform: translateY(20px);
     }
-
     100% {
         opacity: 1;
-        transform: translateX(0);
+        transform: translateY(0);
     }
 }
 
-@keyframes slideInRight {
+@keyframes bounceIn {
     0% {
-        opacity: 0;
-        transform: translateX(100px);
+        transform: scale(0.8);
+        opacity: 0.6;
     }
-
-    100% {
+    50% {
+        transform: scale(1.1);
         opacity: 1;
-        transform: translateX(0);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes bounceText {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(-8px);
     }
 }
