@@ -9,9 +9,11 @@ body {
     height: 100vh;
     background: radial-gradient(circle, rgba(255, 182, 193, 1) 0%, rgba(255, 105, 180, 1) 100%);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
 .birthday-card {
@@ -54,6 +56,34 @@ p {
     margin-top: 15px;
     animation: fadeInUp 2s ease;
 }
+
+.gift {
+    font-size: 18px;
+    color: #ff1493;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.claim-button {
+    background-color: #ff69b4;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.claim-button:hover {
+    background-color: #ff1493;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
+}
+
 
 @keyframes fadeIn {
     0% {
