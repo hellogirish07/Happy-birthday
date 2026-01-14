@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,162 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday</title>
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- AOS CDN -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --gold: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
-            --nebula: radial-gradient(circle at 50% 50%, #1a0b2e 0%, #050505 100%);
-        }
-
-        body {
-            margin: 0;
-            background: #050505;
-            color: white;
-            font-family: 'Montserrat', sans-serif;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-
-        .serif { font-family: 'Playfair Display', serif; }
-
-        /* Animated Nebula Background */
-        .nebula-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--nebula);
-            z-index: -2;
-        }
-
-        .nebula-glow {
-            position: fixed;
-            width: 150vw;
-            height: 150vh;
-            background: radial-gradient(circle, rgba(123, 31, 162, 0.15) 0%, transparent 50%);
-            top: -25%;
-            left: -25%;
-            z-index: -1;
-            filter: blur(80px);
-            animation: drift 20s infinite alternate;
-        }
-
-        @keyframes drift {
-            from { transform: translate(-10%, -10%) rotate(0deg); }
-            to { transform: translate(10%, 10%) rotate(5deg); }
-        }
-
-        /* Gold Text Effect */
-        .gold-text {
-            background: var(--gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
-            filter: drop-shadow(0 0 2px rgba(186, 149, 63, 0.3));
-        }
-
-        /* Sparkle Trail */
-        .sparkle {
-            position: fixed;
-            width: 3px;
-            height: 3px;
-            border-radius: 50%;
-            background: #fff;
-            pointer-events: none;
-            z-index: 9999;
-            box-shadow: 0 0 8px #fff, 0 0 15px #ffd700;
-        }
-
-        /* 3D Glass Cards */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 3rem;
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transform-style: preserve-3d;
-            perspective: 1000px;
-        }
-
-        .glass-card:hover {
-            background: rgba(255, 255, 255, 0.07);
-            border-color: rgba(186, 149, 63, 0.5);
-            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
-        }
-
-        .shimmer-btn {
-            position: relative;
-            overflow: hidden;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(186, 149, 63, 0.4);
-            color: #fcf6ba;
-            padding: 1.2rem 3rem;
-            border-radius: 100px;
-            letter-spacing: 4px;
-            transition: 0.5s;
-        }
-
-        .shimmer-btn::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: 0.5s;
-        }
-
-        .shimmer-btn:hover::before { left: 100%; }
-        .shimmer-btn:hover {
-            box-shadow: 0 0 30px rgba(186, 149, 63, 0.4);
-            transform: scale(1.05);
-        }
-
-        /* Reveal Logic */
-        .reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1.2s ease-out;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        #intro-overlay {
-            position: fixed;
-            inset: 0;
-            background: #000;
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: 2.5s cubic-bezier(0.7, 0, 0.3, 1);
-        }
-
-        .star-canvas {
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-        }
-
-        .floating-ornament {
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(186, 149, 63, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
-            filter: blur(40px);
-            pointer-events: none;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css" class="css">
 </head>
 <body>
 
     <div id="intro-overlay">
-        <div class="text-center">
+        <div class="text-center" data-aos="fade-down">
             <p class="text-xs tracking-[0.5em] text-gray-500 mb-8 uppercase">A Moment Created for You</p>
             <button onclick="unlock()" class="shimmer-btn serif italic text-xl">Begin the Journey</button>
         </div>
@@ -176,7 +33,7 @@
         <div class="floating-ornament" style="bottom: 20%; right: 10%;"></div>
         
         <h2 class="reveal text-sm tracking-[0.8em] text-gray-400 mb-6 uppercase">The Universe Celebrates</h2>
-        <h1 class="reveal text-7xl md:text-9xl serif italic mb-8">
+        <h1 class="reveal text-7xl md:text-9xl serif italic mb-8" data-aos="fade-down">
             <span class="gold-text">Happy Birthday</span>
         </h1>
         <p class="reveal text-lg font-light tracking-widest text-gray-300 max-w-xl mx-auto">
@@ -190,9 +47,9 @@
 
     <!-- Message Journey -->
     <section class="min-h-screen flex items-center justify-center p-8">
-        <div class="reveal max-w-3xl glass-card text-center relative overflow-hidden">
+        <div class="reveal max-w-3xl glass-card text-center relative overflow-hidden" data-aos="fade-down">
             <div class="absolute -top-24 -left-24 w-48 h-48 bg-yellow-500/10 rounded-full blur-3xl"></div>
-            <p class="text-2xl md:text-4xl serif italic leading-relaxed mb-8">
+            <p class="text-2xl md:text-4xl serif italic leading-relaxed mb-8" >
                 "In a galaxy of billions, your soul has a frequency that is uniquely 
                 <span class="gold-text">beautiful</span>."
             </p>
@@ -239,98 +96,12 @@
         </button>
     </section>
 
+    <script src="script.js"></script>
     <script>
-        // Starfield Engine
-        const canvas = document.getElementById('stars');
-        const ctx = canvas.getContext('2d');
-        let starArray = [];
-
-        function resize() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-
-        class Star {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2;
-                this.speed = Math.random() * 0.2 + 0.05;
-                this.alpha = Math.random();
-                this.blink = Math.random() * 0.02;
-            }
-            draw() {
-                ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
-                ctx.shadowBlur = 5;
-                ctx.shadowColor = "white";
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-            update() {
-                this.y -= this.speed;
-                if (this.y < 0) this.y = canvas.height;
-                this.alpha += this.blink;
-                if (this.alpha > 1 || this.alpha < 0) this.blink *= -1;
-            }
-        }
-
-        function initStars() {
-            starArray = [];
-            for (let i = 0; i < 250; i++) starArray.push(new Star());
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            starArray.forEach(star => {
-                star.draw();
-                star.update();
-            });
-            requestAnimationFrame(animate);
-        }
-
-        // Mouse Sparkle (Enhanced)
-        window.addEventListener('mousemove', (e) => {
-            for(let i=0; i<2; i++) createSparkle(e.clientX, e.clientY);
+        AOS.init({
+            duration: 1000,
+            once: true,
         });
-
-        function createSparkle(x, y) {
-            const s = document.createElement('div');
-            s.className = 'sparkle';
-            s.style.left = x + 'px';
-            s.style.top = y + 'px';
-            document.body.appendChild(s);
-
-            const destX = x + (Math.random() - 0.5) * 60;
-            const destY = y + (Math.random() - 0.5) * 60;
-
-            s.animate([
-                { transform: 'translate(0, 0) scale(1)', opacity: 1 },
-                { transform: `translate(${destX - x}px, ${destY - y}px) scale(0)`, opacity: 0 }
-            ], { duration: 1500, easing: 'ease-out' }).onfinish = () => s.remove();
-        }
-
-        // Reveal on Scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => {
-                if (e.isIntersecting) e.target.classList.add('visible');
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        function unlock() {
-            const overlay = document.getElementById('intro-overlay');
-            overlay.style.opacity = '0';
-            overlay.style.transform = 'scale(1.1)';
-            setTimeout(() => overlay.remove(), 2500);
-        }
-
-        window.addEventListener('resize', resize);
-        resize();
-        initStars();
-        animate();
     </script>
 </body>
 </html>
-
